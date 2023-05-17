@@ -1,11 +1,11 @@
 package com.tp.biller.security;
 
-import com.tp.biller.services.UserDetailsServiceImpl;
+import com.tp.biller.service.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,7 +22,7 @@ public class WebSecurityConfig{
         return new UserDetailsServiceImpl();
     }
     @Bean
-    BCryptPasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -44,9 +44,9 @@ public class WebSecurityConfig{
                 })
                 .formLogin(form -> {
                     form
-//                            .loginPage("/login") // indique que je souhaite utiliser mon propre thymeleaf
-                            .usernameParameter("email") // <input name = "email"
-                            .passwordParameter("password") // <input name = "password"
+//                            .loginPage("/login") // Thymeleaf perso
+                            .usernameParameter("email")
+                            .passwordParameter("password")
                             .permitAll()
                             .defaultSuccessUrl("/dashboard");
                 })

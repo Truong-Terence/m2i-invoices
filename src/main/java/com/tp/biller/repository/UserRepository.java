@@ -1,6 +1,6 @@
-package com.tp.biller.repositories;
+package com.tp.biller.repository;
 
-import com.tp.biller.entities.User;
+import com.tp.biller.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

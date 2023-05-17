@@ -1,7 +1,7 @@
-package com.tp.biller.services;
+package com.tp.biller.service;
 
-import com.tp.biller.entities.User;
-import com.tp.biller.repositories.UserRepository;
+import com.tp.biller.entity.User;
+import com.tp.biller.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

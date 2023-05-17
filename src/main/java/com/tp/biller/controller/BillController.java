@@ -1,7 +1,7 @@
-package com.tp.biller.controllers;
+package com.tp.biller.controller;
 
-import com.tp.biller.entities.Bill;
-import com.tp.biller.repositories.BillRepository;
+import com.tp.biller.entity.Bill;
+import com.tp.biller.repository.BillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

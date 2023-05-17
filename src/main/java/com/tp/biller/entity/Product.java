@@ -1,4 +1,4 @@
-package com.tp.biller.entities;
+package com.tp.biller.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
     private Integer priceHT;
-    @ManyToOne
-    private Bill bill;
 }

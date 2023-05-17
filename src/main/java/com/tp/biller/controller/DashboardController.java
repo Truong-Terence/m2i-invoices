@@ -1,17 +1,14 @@
-package com.tp.biller.controllers;
+package com.tp.biller.controller;
 
-import com.tp.biller.entities.Bill;
-import com.tp.biller.entities.Customer;
-import com.tp.biller.entities.Product;
-import com.tp.biller.repositories.BillRepository;
-import com.tp.biller.repositories.CustomerRepository;
-import com.tp.biller.repositories.ProductRepository;
+import com.tp.biller.entity.Customer;
+import com.tp.biller.entity.Product;
+import com.tp.biller.repository.BillRepository;
+import com.tp.biller.repository.CustomerRepository;
+import com.tp.biller.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 

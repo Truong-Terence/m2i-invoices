@@ -1,17 +1,25 @@
 package com.tp.biller;
 
-import com.tp.biller.entities.User;
-import com.tp.biller.repositories.BillRepository;
-import com.tp.biller.repositories.CustomerRepository;
-import com.tp.biller.repositories.ProductRepository;
-import com.tp.biller.repositories.UserRepository;
+import com.tp.biller.entity.User;
+import com.tp.biller.repository.BillRepository;
+import com.tp.biller.repository.CustomerRepository;
+import com.tp.biller.repository.ProductRepository;
+import com.tp.biller.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
+@EnableJpaRepositories("com.tp.biller.repository")
+@ComponentScan("com.tp.biller.service")
+@ComponentScan("com.tp.biller.controller")
+@ComponentScan("com.tp.biller.entity")
+@ComponentScan("com.tp.biller.security")
 @SpringBootApplication
 public class BillerApplication {
 	@Autowired
@@ -21,15 +29,15 @@ public class BillerApplication {
 		SpringApplication.run(BillerApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner start(UserRepository userRepository, CustomerRepository customerRepository, ProductRepository productRepository, BillRepository billRepository) {
-		return args -> {
-			User user = new User();
-			user.setEmail("admin@my-invoice.fr");
-			user.setPassword(passwordEncoder.encode("qwerty"));
-			userRepository.save(user);
-		};
-	}
+//	@Bean
+//	CommandLineRunner start(UserRepository userRepository, CustomerRepository customerRepository, ProductRepository productRepository, BillRepository billRepository) {
+//		return args -> {
+//			User user = new User();
+//			user.setEmail("admin@my-invoice.fr");
+//			user.setPassword(passwordEncoder.encode("qwerty"));
+//			userRepository.save(user);
+//		};
+//	}
 
 
 //	INSERT INTO user (email, password) VALUES ('admin@my-invoice.fr', 'qwerty');
