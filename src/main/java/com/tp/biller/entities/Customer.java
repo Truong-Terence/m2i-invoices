@@ -1,12 +1,11 @@
 package com.tp.biller.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Collection;
 
 @Entity
 @Data
@@ -19,4 +18,6 @@ public class Customer {
     private String company;
     private String address;
     private String phone;
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    private Collection<Bill> bills;
 }

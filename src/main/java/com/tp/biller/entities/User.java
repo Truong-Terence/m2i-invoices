@@ -17,6 +17,4 @@ public class User {
     private Long id;
     private String email;
     private String password;
-    @OneToMany(mappedBy = "customer")
-    private Collection<Bill> bills;
 }
